@@ -35,7 +35,7 @@ export default function Home() {
     const ability = abilitiesSelected.find(e => e.key === letter);
     if (ability) {
       return <motion.div initial={{ opacity: 0, y: 10 }}
-      animate={{ opacity: 1, y: 0 }}><span className="text-white text-xs">{ability.champ} ({letter})</span></motion.div>
+        animate={{ opacity: 1, y: 0 }}><span className="text-white text-xs">{ability.champ} ({letter})</span></motion.div>
     }
     return <span className="text-white text-xs">&nbsp;</span>
   }
@@ -54,8 +54,8 @@ export default function Home() {
           !!champSelected ?
             <>
               <div className="col-span-12 md:col-span-7">
-                <div className="bg-gray-900 h-full p-20 relative">
-                  <div className="absolute -top-2 lg:-top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
+                <div className="bg-gray-900 h-full p-10 lg:p-20 relative">
+                  <div className="absolute -top-10 lg:-top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
                     {abilityShow("P")}
                     <div className="bg-gray-950 rounded-full border-2 w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
                       {pictureOrLetter("P")}
@@ -63,30 +63,30 @@ export default function Home() {
                   </div>
 
 
-                  <div className="absolute -top-8 left-0 translate-y-2/4 translate-x-2/4 text-center">
+                  <div className="absolute -top-10 -left-2 lg:-top-8 lg:left-0 translate-y-2/4 translate-x-2/4 text-center">
                     {abilityShow("Q")}
-                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("Q")}
                     </div>
                   </div>
 
-                  <div className="absolute -bottom-8 left-0 -translate-y-2/4 translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
+                  <div className="absolute -bottom-10 -left-4 lg:-bottom-8 lg:left-0 -translate-y-2/4 translate-x-2/4 text-center">
+                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("E")}
                     </div>
                     {abilityShow("E")}
                   </div>
 
-                  <div className="absolute -bottom-8 right-0 -translate-y-2/4 -translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
+                  <div className="absolute -bottom-10 -right-2 lg:-bottom-8 lg:right-0 -translate-y-2/4 -translate-x-2/4 text-center">
+                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("R")}
                     </div>
                     {abilityShow("R")}
                   </div>
 
-                  <div className="absolute -top-8 right-0 translate-y-2/4 -translate-x-2/4 text-center">
+                  <div className="absolute -top-10 -right-2 lg:-top-8 lg:right-0 translate-y-2/4 -translate-x-2/4 text-center">
                     {abilityShow("W")}
-                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("W")}
                     </div>
                   </div>
