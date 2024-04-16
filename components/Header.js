@@ -15,7 +15,7 @@ export default function Header() {
             <div className="w-40">
                 {
                     language &&
-                    <select className="select w-full max-w-xs" defaultValue={language} onChange={e => localStorage.setItem('selectedLanguage', e.target.value)}>
+                    <select className="select select-bordered w-full max-w-xs" defaultValue={language} onChange={e => localStorage.setItem('selectedLanguage', e.target.value)}>
                         {
                             all.languages.map(el =>
                                 <option key={el.languageCode} value={el.languageCode}> {el.languageName} </option>
@@ -25,10 +25,10 @@ export default function Header() {
                 }
 
             </div>
-            <h1 className="text-3xl md:text-4xl lg:text-5xl text-center font-extrabold ">Build the Perfect Champ</h1>
+            <h1 className="text-2xl md:text-3xl lg:text-5xl text-center font-extrabold ">Build the Perfect Champ</h1>
             <div className="w-40 flex items-center justify-end gap-4">
 
-                <button className='btn btn-primary w-12 rounded-full text-2xl text-white'>?</button>
+                <button className='btn btn-primary btn-outline w-12 rounded-full text-2xl text-white'>?</button>
             </div>
         </div>
     )

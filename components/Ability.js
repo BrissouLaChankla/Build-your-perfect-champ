@@ -27,7 +27,7 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
     const keys = ["P", "Q", "W", "E", "R"];
 
     return (
-        <div className="p-2 flex flex-col h-full gap-3 justify-center border-2">
+        <div className="p-2 flex flex-col h-full gap-3 justify-center border-2 bg-gray-950">
             {
                 abilities.map((el, i) => {
                     return (
@@ -42,13 +42,13 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
                                 onClick={() => abilitiesSelected.some(e => e.key === keys[i]) ? undefined : selectAbillity(keys[i], el.id)}>
 
                                 {/* Pour le premier élément, je vais change l'url source de l'image par passive */}
-                                <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${i === 0 ? "passive" : "spell"}/${el.id}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover ${abilitiesSelected.some(e => e.key === keys[i]) && "opacity-20"}`} width={75} height={75} alt={el.name} />
+                                <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${i === 0 ? "passive" : "spell"}/${el.id}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} md:w-[50px] md:h-[50px] lg:w-[60px] lg:h-[60px] object-cover ${abilitiesSelected.some(e => e.key === keys[i]) && "opacity-20"}`} width={75} height={75} alt={el.name} />
                                 <div className="grow">
                                     <div className="flex items-center justify-between">
-                                        <h3 className="text-xl font-bold">{el.name}</h3>
+                                        <h3 className="lg:text-xl font-bold">{el.name}</h3>
                                         <span className=" h-5 w-5 flex items-center justify-center rounded bg-gray-700 text-xs">{keys[i]}</span>
                                     </div>
-                                    <p className="text-sm line-clamp-2 mt-0.5" dangerouslySetInnerHTML={{ __html: el.description }}></p>
+                                    <p className="text-xs lg:text-sm line-clamp-2 mt-0.5" dangerouslySetInnerHTML={{ __html: el.description }}></p>
                                 </div>
                             </div>
                         </motion.div>

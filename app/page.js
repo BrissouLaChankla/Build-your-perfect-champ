@@ -55,9 +55,9 @@ export default function Home() {
             <>
               <div className="col-span-12 md:col-span-7">
                 <div className="bg-gray-900 h-full p-20 relative">
-                  <div className="absolute -top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
+                  <div className="absolute -top-2 lg:-top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
                     {abilityShow("P")}
-                    <div className="bg-gray-950 rounded-full border-2 w-16 h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded-full border-2 w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
                       {pictureOrLetter("P")}
                     </div>
                   </div>
@@ -65,20 +65,20 @@ export default function Home() {
 
                   <div className="absolute -top-8 left-0 translate-y-2/4 translate-x-2/4 text-center">
                     {abilityShow("Q")}
-                    <div className="bg-gray-950 rounded border-2 w-24 h-24 flex items-center justify-center text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("Q")}
                     </div>
                   </div>
 
                   <div className="absolute -bottom-8 left-0 -translate-y-2/4 translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-24 h-24 flex items-center justify-center text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("E")}
                     </div>
                     {abilityShow("E")}
                   </div>
 
                   <div className="absolute -bottom-8 right-0 -translate-y-2/4 -translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-24 h-24 flex items-center justify-center text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("R")}
                     </div>
                     {abilityShow("R")}
@@ -86,7 +86,7 @@ export default function Home() {
 
                   <div className="absolute -top-8 right-0 translate-y-2/4 -translate-x-2/4 text-center">
                     {abilityShow("W")}
-                    <div className="bg-gray-950 rounded border-2 w-24 h-24 flex items-center justify-center text-4xl font-bold overflow-hidden">
+                    <div className="bg-gray-950 rounded border-2 w-20 h-20 lg:w-24 lg:h-24 flex items-center justify-center text-3xl lg:text-4xl font-bold overflow-hidden">
                       {pictureOrLetter("W")}
                     </div>
                   </div>
