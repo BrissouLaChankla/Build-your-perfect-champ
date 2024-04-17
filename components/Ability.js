@@ -13,7 +13,7 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
         fetch(`https://ddragon.leagueoflegends.com/cdn/14.7.1/data/${all.getLanguage()}/champion/${id}.json`)
             .then(response => response.json())
             .then(data => {
-                audioRef.current.play();
+                // audioRef.current.play();
 
                 const formattedData = data.data[id].spells;
                 const passive = data.data[id].passive;
@@ -30,6 +30,7 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
         <div className="p-2 flex flex-col h-full gap-3 justify-center border-2 bg-gray-950">
             {
                 abilities.map((el, i) => {
+                    console.log(el)
                     return (
                         <motion.div
 
@@ -39,7 +40,7 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
                             transition={{ delay: 0.1 * i }}>
 
                             <div className={`flex items-center gap-3 rounded-lg p-2 ${abilitiesSelected.some(e => e.key === keys[i]) ? "cursor-not-allowed text-gray-500 bg-gray-800" : "hover:bg-gray-900 cursor-pointer transiton ease-in-out duration-100"}`}
-                                onClick={() => abilitiesSelected.some(e => e.key === keys[i]) ? undefined : selectAbillity(keys[i], el.id)}>
+                                onClick={() => abilitiesSelected.some(e => e.key === keys[i]) ? undefined : selectAbillity(keys[i], el.id, el.name, el.description)}>
 
                                 {/* Pour le premier élément, je vais change l'url source de l'image par passive */}
                                 <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${i === 0 ? "passive" : "spell"}/${el.id}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} md:w-[50px] md:h-[50px] lg:w-[60px] lg:h-[60px] object-cover ${abilitiesSelected.some(e => e.key === keys[i]) && "opacity-20"}`} width={75} height={75} alt={el.name} />

@@ -6,6 +6,7 @@ import all from "@/utils/all";
 import { useState } from "react";
 import Header from "@/components/Header";
 import { motion } from "framer-motion";
+import Video from "@/components/Video";
 
 export default function Home() {
   const [champSelected, setChampSelected] = useState(null);
@@ -15,9 +16,9 @@ export default function Home() {
     const data = await response.json();
     setChampSelected(all.getRandomChamps(data.data));
   }
-  const selectAbillity = (key, name) => {
+  const selectAbillity = (key, name, spellName, spellDesc) => {
     setAbilitiesSelected([...abilitiesSelected, {
-      key, name, champ: champSelected.name
+      key, name, champ: champSelected.name, spellName, spellDesc
     }]);
     selectChamp();
   }
@@ -44,89 +45,111 @@ export default function Home() {
     document.getElementById('my_modal_4').showModal()
   }
 
+  let bgStyle;
+  if (!!champSelected) {
+    bgStyle = {
+      backgroundColor: "#111111",
+      backgroundImage: "linear-gradient(32deg, rgba(8, 8, 8, 0.74) 30px,transparent)",
+      backgroundSize: "60px 60px",
+      backgroundPosition: "-5px -5px"
+    }
+  } else {
+    bgStyle = {}
+  }
   return (
-    <main className="min-h-screen p-4 flex flex-col items-center max-w-7xl m-auto">
-      <Header />
-      {/* You can open the modal using document.getElementById('ID').showModal() method */}
 
-      <div className="grid grid-cols-12 my-8 grow w-full">
-        {
-          !!champSelected ?
-            <>
-              <div className="col-span-12 md:col-span-7">
-                <div className="bg-gray-900 h-full p-10 lg:p-20 relative">
-                  <div className="absolute -top-10 lg:-top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
-                    {abilityShow("P")}
-                    <div className="bg-gray-950 rounded-full border-2 w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
-                      {pictureOrLetter("P")}
+    <>
+      {!champSelected && <Video />}
+      <main style={bgStyle}>
+        <div className="min-h-screen p-4 flex flex-col items-center max-w-7xl m-auto"  >
+
+
+          <Header />
+          {/* You can open the modal using document.getElementById('ID').showModal() method */}
+
+          <div className="grid grid-cols-12 my-8 grow w-full">
+            {
+              !!champSelected ?
+                <>
+                  <div className="col-span-12 md:col-span-7">
+                    <div className="bg-gray-900 h-full p-10 lg:p-20 relative">
+                      <div className="absolute -top-10 lg:-top-5 left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
+                        {abilityShow("P")}
+                        <div className="bg-gray-950 rounded-full border-2 w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
+                          {pictureOrLetter("P")}
+                        </div>
+                      </div>
+
+
+                      <div className="absolute -top-10 -left-2 lg:-top-8 lg:left-0 translate-y-2/4 translate-x-2/4 text-center">
+                        {abilityShow("Q")}
+                        <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
+                          {pictureOrLetter("Q")}
+                        </div>
+                      </div>
+
+                      <div className="absolute -bottom-10 -left-4 lg:-bottom-8 lg:left-0 -translate-y-2/4 translate-x-2/4 text-center">
+                        <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
+                          {pictureOrLetter("E")}
+                        </div>
+                        {abilityShow("E")}
+                      </div>
+
+                      <div className="absolute -bottom-10 -right-2 lg:-bottom-8 lg:right-0 -translate-y-2/4 -translate-x-2/4 text-center">
+                        <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
+                          {pictureOrLetter("R")}
+                        </div>
+                        {abilityShow("R")}
+                      </div>
+
+                      <div className="absolute -top-10 -right-2 lg:-top-8 lg:right-0 translate-y-2/4 -translate-x-2/4 text-center">
+                        {abilityShow("W")}
+                        <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
+                          {pictureOrLetter("W")}
+                        </div>
+                      </div>
+
+
+
+                      <Champion name={champSelected.name} id={champSelected.id} />
                     </div>
                   </div>
-
-
-                  <div className="absolute -top-10 -left-2 lg:-top-8 lg:left-0 translate-y-2/4 translate-x-2/4 text-center">
-                    {abilityShow("Q")}
-                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
-                      {pictureOrLetter("Q")}
-                    </div>
+                  <div className="col-span-12 md:col-span-5">
+                    <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} />
                   </div>
-
-                  <div className="absolute -bottom-10 -left-4 lg:-bottom-8 lg:left-0 -translate-y-2/4 translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
-                      {pictureOrLetter("E")}
-                    </div>
-                    {abilityShow("E")}
-                  </div>
-
-                  <div className="absolute -bottom-10 -right-2 lg:-bottom-8 lg:right-0 -translate-y-2/4 -translate-x-2/4 text-center">
-                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
-                      {pictureOrLetter("R")}
-                    </div>
-                    {abilityShow("R")}
-                  </div>
-
-                  <div className="absolute -top-10 -right-2 lg:-top-8 lg:right-0 translate-y-2/4 -translate-x-2/4 text-center">
-                    {abilityShow("W")}
-                    <div className="bg-gray-950 rounded border-2 w-16 h-16 lg:w-24 lg:h-24 flex items-center justify-center text-2xl lg:text-4xl font-bold overflow-hidden">
-                      {pictureOrLetter("W")}
-                    </div>
-                  </div>
-
-
-
-                  <Champion name={champSelected.name} id={champSelected.id} />
+                </>
+                :
+                <div>
+                  La partie
                 </div>
-              </div>
-              <div className="col-span-12 md:col-span-5">
-                <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} />
-              </div>
-            </>
-            :
-            <div>
-              La partie
-            </div>
-        }
-      </div>
-      {!champSelected && <button className="btn btn-primary btn-lg" onClick={() => selectChamp()}>Démarrer</button>}
-
-      {/* could be exported but meh */}
-      <dialog id="my_modal_4" className="modal">
-        <div className="modal-box w-11/12 max-w-5xl">
-          <h3 className="font-bold text-lg">Here's your perfect champion!</h3>
-          {
-            abilitiesSelected.map((el, i) => {
-              return (
-                <div key={el.key}>
-                  <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : "spell"}/${el.name}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover`} width={75} height={75} alt={el.name} />
-                </div>
-              )
-            })
-          }
-          <p className="py-4">Click the button below to close</p>
-          <div className="modal-action">
-            <a href="/" className="btn">Recommencer</a>
+            }
           </div>
+          {!champSelected && <button className="btn btn-primary btn-lg" onClick={() => selectChamp()}>Start the Game</button>}
+
+          {/* could be exported but meh */}
+          <dialog id="my_modal_4" className="modal">
+            <div className="modal-box w-11/12 max-w-5xl">
+              <h3 className="font-bold text-lg">Here's your perfect champion!</h3>
+              <div className="flex flex-col gap-4">
+
+                {
+                  abilitiesSelected.map((el, i) => {
+                    return (
+                      <div key={el.key}>
+                        <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : "spell"}/${el.name}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover`} width={75} height={75} alt={el.name} />
+                      </div>
+                    )
+                  })
+                }
+              </div>
+              <div className="modal-action">
+                <a href="/" className="btn btn-lg btn-primary">Recommencer</a>
+              </div>
+            </div>
+          </dialog>
         </div>
-      </dialog>
-    </main>
+      </main>
+    </>
+
   );
 }
