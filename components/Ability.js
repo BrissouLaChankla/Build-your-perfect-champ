@@ -21,7 +21,7 @@ export default function Ability({ id, selectAbillity, abilitiesSelected, name })
                 formattedData.push({
                     id:id,
                     name:"Character Design",
-                    description:`You can choose ${name}'s chara design, so you'll inherit his role, stats and attack range.`
+                    description:`You inherit ${name}'s chara design, his role, stats and attack range.`
                 })
                 setAbilities(formattedData)
             })

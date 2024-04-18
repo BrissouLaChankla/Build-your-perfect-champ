@@ -24,7 +24,7 @@ const languages = [
     { languageCode: "zh_CN", languageName: "Chinese", countryCode: "CN" },
 ];
 
-const order = ["P", "Q", "W", "E", "R"];
+const order = ["P", "Q", "W", "E", "R", "D"];
 
 const getLanguage = () => {
 

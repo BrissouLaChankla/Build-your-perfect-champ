@@ -27,7 +27,7 @@ export default function Home() {
 
     if (!!ability) {
       return <motion.div initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}><Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${letter === "P" ? "passive" : "spell"}/${ability.name}.png`} className="object-cover" quality={100} width={100} height={100} alt={`${ability.name} icon`} /></motion.div>;
+        animate={{ opacity: 1, y: 0 }}><Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${letter === "P" ? "passive" : letter === "D" ? "champion" : "spell"}/${ability.name}.png`} className="object-cover" quality={100} width={100} height={100} alt={`${ability.name} icon`} /></motion.div>;
     }
 
     return letter;
@@ -41,7 +41,7 @@ export default function Home() {
     return <span className="text-white text-xs">&nbsp;</span>
   }
 
-  if (abilitiesSelected.length >= 5) {
+  if (abilitiesSelected.length >= all.order.length) {
     document.getElementById('my_modal_4').showModal()
   }
 
@@ -64,7 +64,7 @@ export default function Home() {
     <>
       {!champSelected && <Video />}
       <main style={bgStyle}>
-        <div className="min-h-screen p-4 flex flex-col items-center max-w-7xl m-auto"  >
+        <div className=" p-4 flex flex-col items-center max-w-7xl m-auto"  style={{minHeight:"100vh", minHeight:"100svh"}}>
 
 
           <Header />
@@ -111,6 +111,13 @@ export default function Home() {
                           {pictureOrLetter("W")}
                         </div>
                       </div>
+                      <div className="absolute bottom-24  left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
+                        {abilityShow("D")}
+                        <div className="bg-gray-950 mask mask-hexagon  w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
+                          {pictureOrLetter("D")}
+                        </div>
+                      </div>
+                      
 
 
 
@@ -122,12 +129,12 @@ export default function Home() {
                   </div>
                 </>
                 :
-                <div>
-                  La partie
+                <div className="col-span-12 flex items-center justify-center">
+                  <button className="btn btn-primary btn-lg" onClick={() => selectChamp()}>Start the Game</button>
                 </div>
             }
           </div>
-          {!champSelected && <button className="btn btn-primary btn-lg" onClick={() => selectChamp()}>Start the Game</button>}
+          
 
           {/* could be exported but meh */}
           <dialog id="my_modal_4" className="modal">
@@ -148,7 +155,7 @@ export default function Home() {
                         <div className={`flex items-center gap-3 border-b-2  p-2`}>
 
                           {/* Pour le premier élément, je vais change l'url source de l'image par passive */}
-                          <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : "spell"}/${el.name}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover`} width={50} height={50} alt={el.name} />
+                          <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : el.key === "D" ? "champion" : "spell"}/${el.name}.png`} className={`skeleton ${i === 0 ? "rounded-full" : i === all.order.length-1 ? "mask mask-hexagon" : "rounded-lg"} w-[60px] h-[60px] object-cover`} width={50} height={50} alt={el.name} />
 
                           <div className="grow">
                             <div className="flex items-center justify-between">
