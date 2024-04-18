@@ -111,7 +111,7 @@ export default function Home() {
                           {pictureOrLetter("W")}
                         </div>
                       </div>
-                      <div className="absolute bottom-24  left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
+                      <div className="absolute bottom-12 lg:bottom-24  left-1/2 translate-y-2/4 -translate-x-2/4 text-center">
                         {abilityShow("D")}
                         <div className="bg-gray-950 mask mask-hexagon  w-12 h-12 lg:w-16 lg:h-16 flex items-center justify-center text-2xl font-bold overflow-hidden">
                           {pictureOrLetter("D")}
