@@ -56,6 +56,9 @@ export default function Home() {
   } else {
     bgStyle = {}
   }
+
+
+
   return (
 
     <>
@@ -115,7 +118,7 @@ export default function Home() {
                     </div>
                   </div>
                   <div className="col-span-12 md:col-span-5">
-                    <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} />
+                    <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} name={champSelected.name} />
                   </div>
                 </>
                 :
@@ -129,21 +132,42 @@ export default function Home() {
           {/* could be exported but meh */}
           <dialog id="my_modal_4" className="modal">
             <div className="modal-box w-11/12 max-w-5xl">
-              <h3 className="font-bold text-lg">Here's your perfect champion!</h3>
-              <div className="flex flex-col gap-4">
+              <h2 className="font-bold text-3xl mb-5 text-primary text-center">Here's your perfect champion!</h2>
+              <div className="flex flex-col">
 
                 {
-                  abilitiesSelected.map((el, i) => {
+                  abilitiesSelected.sort((a, b) => all.order.indexOf(a.key) - all.order.indexOf(b.key)).map((el, i) => {
                     return (
-                      <div key={el.key}>
-                        <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : "spell"}/${el.name}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover`} width={75} height={75} alt={el.name} />
-                      </div>
+                      <motion.div
+
+                        key={el.key}
+                        initial={{ opacity: 0, x: -10 }}
+                        animate={{ opacity: 1, x: 0 }}
+                        transition={{ delay: 0.1 * i }}>
+
+                        <div className={`flex items-center gap-3 border-b-2  p-2`}>
+
+                          {/* Pour le premier élément, je vais change l'url source de l'image par passive */}
+                          <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : "spell"}/${el.name}.png`} className={`skeleton rounded-${i === 0 ? "full" : "lg"} w-[60px] h-[60px] object-cover`} width={50} height={50} alt={el.name} />
+
+                          <div className="grow">
+                            <div className="flex items-center justify-between">
+                              <h3 className="lg:text-xl font-bold">{el.spellName}</h3>
+                              <span className=" h-5 w-5 flex items-center justify-center rounded bg-gray-700 text-xs">{el.key}</span>
+                            </div>
+                            <p className="text-xs lg:text-sm line-clamp-2 mt-0.5" dangerouslySetInnerHTML={{ __html: el.spellDesc }}></p>
+                          </div>
+                        </div>
+                      </motion.div>
+
+
+
                     )
                   })
                 }
               </div>
               <div className="modal-action">
-                <a href="/" className="btn btn-lg btn-primary">Create a new champ</a>
+                <a href="/" className="btn btn-lg btn-primary">Play Again</a>
               </div>
             </div>
           </dialog>

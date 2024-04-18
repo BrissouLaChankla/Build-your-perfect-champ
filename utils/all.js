@@ -24,17 +24,18 @@ const languages = [
     { languageCode: "zh_CN", languageName: "Chinese", countryCode: "CN" },
 ];
 
+const order = ["P", "Q", "W", "E", "R"];
 
 const getLanguage = () => {
 
     // get chosen language OR browser language OR english
-    if(localStorage.getItem('selectedLanguage')) {
+    if (localStorage.getItem('selectedLanguage')) {
         return localStorage.getItem('selectedLanguage');
     }
 
     const browserLang = navigator.language || navigator.userLanguage || "en_US";
 
-  
+
     const result = languages.find(el => el.languageCode.includes(browserLang))?.languageCode;
     if (!!result) {
         return result;
@@ -43,4 +44,4 @@ const getLanguage = () => {
     return "en_US";
 }
 
-export default { getRandomChamps, getLanguage, languages }
+export default { getRandomChamps, getLanguage, languages, order }
