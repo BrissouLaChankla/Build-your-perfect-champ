@@ -30,7 +30,6 @@ export default function Ability({ id, selectAbillity, abilitiesSelected }) {
         <div className="p-2 flex flex-col h-full gap-3 justify-center border-2 bg-gray-950">
             {
                 abilities.map((el, i) => {
-                    console.log(el)
                     return (
                         <motion.div
 

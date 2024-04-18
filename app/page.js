@@ -143,7 +143,7 @@ export default function Home() {
                 }
               </div>
               <div className="modal-action">
-                <a href="/" className="btn btn-lg btn-primary">Recommencer</a>
+                <a href="/" className="btn btn-lg btn-primary">Create a new champ</a>
               </div>
             </div>
           </dialog>

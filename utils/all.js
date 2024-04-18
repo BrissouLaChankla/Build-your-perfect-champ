@@ -32,10 +32,10 @@ const getLanguage = () => {
         return localStorage.getItem('selectedLanguage');
     }
 
-    const browserLang = navigator.language || navigator.userLanguage;
+    const browserLang = navigator.language || navigator.userLanguage || "en_US";
 
   
-    const result = languages.find(el => el.languageCode.includes(browserLang)).languageCode;
+    const result = languages.find(el => el.languageCode.includes(browserLang))?.languageCode;
     if (!!result) {
         return result;
     }
