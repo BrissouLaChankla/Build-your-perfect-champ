@@ -12,9 +12,17 @@ import Video from "@/components/Video";
 export default function Home() {
   const [champSelected, setChampSelected] = useState(null);
   const [abilitiesSelected, setAbilitiesSelected] = useState([]);
+  const [shuffling, setShuffling] = useState(false);
+
   const selectChamp = async () => {
+    setShuffling(true)
+    setTimeout(() => {
+      setShuffling(false)
+    }, "2000");
+
     const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/14.7.1/data/${all.getLanguage()}/champion.json`)
     const data = await response.json();
+
     setChampSelected(all.getRandomChamps(data.data));
   }
   const selectAbillity = (key, name, spellName, spellDesc) => {
@@ -28,7 +36,7 @@ export default function Home() {
 
     if (!!ability) {
       return <motion.div initial={{ opacity: 0, y: -10 }}
-        animate={{ opacity: 1, y: 0 }}><Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${letter === "P" ? "passive" : letter === "D" ? "champion" : "spell"}/${ability.name}.png`} className="object-cover" quality={100} width={100} height={100} alt={`${ability.name} icon`} /></motion.div>;
+        animate={{ opacity: 1, y: 0 }}><img src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${letter === "P" ? "passive" : letter === "D" ? "champion" : "spell"}/${ability.name}.png`} className="object-cover" width={100} height={100} alt={`${ability.name} icon`} /></motion.div>;
     }
 
     return letter;
@@ -63,7 +71,7 @@ export default function Home() {
   return (
 
     <>
-     <Head>
+      <Head>
         <title>Legends' Fusion - Build your Lol Champ</title>
         <meta name="description" content="Randomly select skills from League of legends champions and combine them to create a unique legend" />
 
@@ -83,7 +91,7 @@ export default function Home() {
       </Head>
       {!champSelected && <Video />}
       <main style={bgStyle}>
-        <div className=" p-4 flex flex-col items-center max-w-7xl m-auto"  style={{minHeight:"100vh", minHeight:"100svh"}}>
+        <div className=" p-4 flex flex-col items-center max-w-7xl m-auto" style={{ minHeight: "100vh", minHeight: "100svh" }}>
 
 
           <Header />
@@ -136,15 +144,15 @@ export default function Home() {
                           {pictureOrLetter("D")}
                         </div>
                       </div>
-                      
 
 
 
-                      <Champion name={champSelected.name} id={champSelected.id} />
+
+                      <Champion name={champSelected.name} id={champSelected.id} shuffling={shuffling} />
                     </div>
                   </div>
                   <div className="col-span-12 md:col-span-5">
-                    <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} name={champSelected.name} />
+                    <Ability id={champSelected.id} selectAbillity={selectAbillity} abilitiesSelected={abilitiesSelected} name={champSelected.name} shuffling={shuffling} />
                   </div>
                 </>
                 :
@@ -153,7 +161,7 @@ export default function Home() {
                 </div>
             }
           </div>
-          
+
 
           {/* could be exported but meh */}
           <dialog id="my_modal_4" className="modal">
@@ -174,7 +182,7 @@ export default function Home() {
                         <div className={`flex items-center gap-3 border-b-2  p-2`}>
 
                           {/* Pour le premier élément, je vais change l'url source de l'image par passive */}
-                          <Image src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : el.key === "D" ? "champion" : "spell"}/${el.name}.png`} className={`skeleton ${i === 0 ? "rounded-full" : i === all.order.length-1 ? "mask mask-hexagon" : "rounded-lg"} w-[60px] h-[60px] object-cover`} width={50} height={50} alt={el.name} />
+                          <img src={`https://ddragon.leagueoflegends.com/cdn/14.7.1/img/${el.key === "P" ? "passive" : el.key === "D" ? "champion" : "spell"}/${el.name}.png`} className={`skeleton ${i === 0 ? "rounded-full" : i === all.order.length - 1 ? "mask mask-hexagon" : "rounded-lg"} w-[60px] h-[60px] object-cover`} width={50} height={50} alt={el.name} />
 
                           <div className="grow">
                             <div className="flex items-center justify-between">
