@@ -44,4 +44,9 @@ const getLanguage = () => {
     return "en_US";
 }
 
-export default { getRandomChamps, getLanguage, languages, order }
+function countryCodeToFlagEmoji(countryCode) {
+    const codePoints = countryCode.toUpperCase().split('').map(char =>  127397 + char.charCodeAt());
+    return String.fromCodePoint(...codePoints);
+}
+
+export default { getRandomChamps, getLanguage, languages, order, countryCodeToFlagEmoji }

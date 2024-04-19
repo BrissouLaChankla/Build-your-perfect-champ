@@ -11,7 +11,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="fr" data-theme="dark">
   
-      <body className={inter.className} >{children}</body>
+      <body className={inter.className} style={{overflowX:"hidden"}} >{children}</body>
     </html >
   );
 }

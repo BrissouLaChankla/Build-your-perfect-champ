@@ -139,7 +139,7 @@ export default function Home() {
           {/* could be exported but meh */}
           <dialog id="my_modal_4" className="modal">
             <div className="modal-box w-11/12 max-w-5xl">
-              <h2 className="font-bold text-3xl mb-5 text-primary text-center">Here's your perfect champion!</h2>
+              <h2 className="font-bold text-3xl mb-5 text-primary text-center">Here's your creation!</h2>
               <div className="flex flex-col">
 
                 {
