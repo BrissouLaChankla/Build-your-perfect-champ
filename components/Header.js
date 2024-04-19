@@ -12,7 +12,7 @@ export default function Header() {
 
     return (
         <div className="flex justify-between items-center w-full mt-4 md:mt-8">
-            <div className="w-24">
+            <div className="w-24 md:w-28">
                 {
                     language &&
                     <select className="select select-bordered w-full max-w-xs" defaultValue={language} onChange={e => localStorage.setItem('selectedLanguage', e.target.value)}>
