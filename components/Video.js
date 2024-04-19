@@ -4,7 +4,7 @@ export default function Video() {
             autoPlay
             loop
             muted
-            style={{zIndex:-1}}
+            style={{zIndex:-2}}
             className="absolute w-auto w-full h-full brightness-50 object-cover"
         >
             <source
