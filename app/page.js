@@ -5,6 +5,7 @@ import Ability from "@/components/Ability";
 import all from "@/utils/all";
 import { useState } from "react";
 import Header from "@/components/Header";
+import Head from "next/head";
 import { motion } from "framer-motion";
 import Video from "@/components/Video";
 
@@ -62,6 +63,24 @@ export default function Home() {
   return (
 
     <>
+     <Head>
+        <title>Legends' Fusion - Build your Lol Champ</title>
+        <meta name="description" content="Randomly select skills from League of legends champions and combine them to create a unique legend" />
+
+        <meta property="og:url" content="https://www.legends-fusion.com/" />
+        <meta property="og:type" content="website" />
+        <meta property="og:title" content="Legends' Fusion - Build your Lol Champ" />
+        <meta property="og:description" content="Randomly select skills from League of legends champions and combine them to create a unique legend" />
+        <meta property="og:image" content="https://www.legends-fusion.com/meta.png" />
+
+        <meta name="twitter:card" content="summary_large_image" />
+        <meta property="twitter:domain" content="legends-fusion.com" />
+        <meta property="twitter:url" content="https://www.legends-fusion.com/" />
+        <meta name="twitter:title" content="Legends' Fusion - Build your Lol Champ" />
+        <meta name="twitter:description" content="Randomly select skills from League of legends champions and combine them to create a unique legend" />
+        <meta name="twitter:image" content="https://www.legends-fusion.com/meta.png" />
+
+      </Head>
       {!champSelected && <Video />}
       <main style={bgStyle}>
         <div className=" p-4 flex flex-col items-center max-w-7xl m-auto"  style={{minHeight:"100vh", minHeight:"100svh"}}>
