@@ -1,0 +1,11 @@
+.outlined::after {
+    content:"";
+    height: 50px;;
+    width: 101%;
+    background-color: #9e0521;
+    position: absolute;
+    top: 5px;
+    left: 0;
+    transform:rotate(359deg);
+    z-index: -1;
+}

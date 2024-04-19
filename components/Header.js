@@ -1,4 +1,5 @@
 "use client"
+import style from '@/style/All.module.css'
 import { useState, useEffect } from "react";
 import all from "@/utils/all";
 
@@ -24,7 +25,7 @@ export default function Header() {
                 }
 
             </div>
-            <h1 className="text-3xl lg:text-5xl text-center font-extrabold text-white hidden md:block">Build your Perfect Champ</h1>
+            <h1 className="text-3xl lg:text-5xl text-center font-extrabold text-white hidden md:block">Build your <span className={`relative px-2 ${style.outlined}`}>Perfect Champ</span></h1>
             <div className="w-40 flex items-center justify-end gap-4">
                 <button className='btn btn-neutral btn-outline w-12 rounded-full text-xl ' onClick={() => document.getElementById('rules').showModal()}>?</button>
                 <dialog id="rules" className="modal">
