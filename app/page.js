@@ -18,7 +18,7 @@ export default function Home() {
     setShuffling(true)
     setTimeout(() => {
       setShuffling(false)
-    }, "1200");
+    }, "1600");
     const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/14.7.1/data/${all.getLanguage()}/champion.json`)
     const data = await response.json();
 
