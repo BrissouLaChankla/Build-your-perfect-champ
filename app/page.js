@@ -207,8 +207,9 @@ export default function Home() {
               </div>
             </div>
           </dialog>
-
-          <div className="fixed bottom-0 text-sm flex items-center gap-2 rounded-t-lg backdrop-blur-lg bg-black/30 px-4 p-2">This game is brought to you by<a className="text-primary" href="https://brice-eliasse.com" target="_blank">Brice Eliasse</a> |
+{
+!champSelected &&
+          <div className="fixed bottom-0 text-xs md:text-sm flex items-center gap-2 rounded-t-lg backdrop-blur-lg bg-black/30 px-4 p-2">This game is brought to you by<a className="text-primary" href="https://brice-eliasse.com" target="_blank">Brice Eliasse</a> |
 
             <div className="flex gap-2">
 
@@ -223,6 +224,7 @@ export default function Home() {
               </a>
             </div>
           </div>
+}
         </div>
       </main>
     </>
