@@ -18,13 +18,15 @@ export default function Home() {
     setShuffling(true)
     setTimeout(() => {
       setShuffling(false)
-    }, "2000");
-
+    }, "1200");
     const response = await fetch(`https://ddragon.leagueoflegends.com/cdn/14.7.1/data/${all.getLanguage()}/champion.json`)
     const data = await response.json();
 
     setChampSelected(all.getRandomChamps(data.data));
+
   }
+  console.log(champSelected)
+
   const selectAbillity = (key, name, spellName, spellDesc) => {
     setAbilitiesSelected([...abilitiesSelected, {
       key, name, champ: champSelected.name, spellName, spellDesc
@@ -166,7 +168,7 @@ export default function Home() {
           {/* could be exported but meh */}
           <dialog id="my_modal_4" className="modal">
             <div className="modal-box w-11/12 max-w-5xl">
-              <h2 className="font-bold text-3xl mb-5 text-primary text-center">Here's your creation!</h2>
+              <h2 className="font-bold text-3xl mb-5 text-white text-center">Here's your creation :</h2>
               <div className="flex flex-col">
 
                 {

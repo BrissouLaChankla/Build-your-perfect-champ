@@ -27,11 +27,10 @@ export default function Ability({ id, selectAbillity, abilitiesSelected, name, s
             })
     }, [id])
 
-    console.log(abilities)
 
 
     return (
-        <div className="p-2 flex flex-col h-full gap-3 justify-center border-2 bg-gray-950">
+        <div className="p-2 flex flex-col h-full gap-3 justify-center border-2 bg-gray-950 min-h-[490px]">
 
             {
                 shuffling ?
