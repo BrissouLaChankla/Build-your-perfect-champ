@@ -1,21 +1,44 @@
 import { Inter } from "next/font/google";
 import "./globals.css";
-import { Analytics } from "@vercel/analytics/react"
+
 const inter = Inter({ subsets: ["latin"] });
 
+const SITE_URL = "https://lol-tracker.com";
+const PAGE_PATH = "/games/legends-fusion";
+const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
+
 export const metadata = {
-  title: "Legends' Fusion - Build your Lol Champ",
-  description: "Randomly select skills from League of legends champions and combine them to create a unique legend",
+  metadataBase: new URL(SITE_URL),
+  title: "Legends' Fusion - Build your LoL champion | LoL-Tracker",
+  description:
+    "Randomly pick abilities from League of Legends champions and combine them to create your own unique legend. A LoL-Tracker mini-game.",
+  alternates: {
+    canonical: PAGE_PATH,
+  },
+  openGraph: {
+    type: "website",
+    url: PAGE_URL,
+    siteName: "LoL-Tracker",
+    title: "Legends' Fusion - Build your LoL champion",
+    description:
+      "Randomly pick abilities from League of Legends champions and combine them to create your own unique legend.",
+    images: [`${PAGE_PATH}/meta.png`],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "Legends' Fusion - Build your LoL champion",
+    description:
+      "Randomly pick abilities from League of Legends champions and combine them to create your own unique legend.",
+    images: [`${PAGE_PATH}/meta.png`],
+  },
 };
 
 export default function RootLayout({ children }) {
   return (
-    <>
-      <Analytics />
-      <html lang="fr" data-theme="dark">
-
-        <body className={inter.className} style={{ overflowX: "hidden" }} >{children}</body>
-      </html >
-    </>
+    <html lang="en" data-theme="dark">
+      <body className={inter.className} style={{ overflowX: "hidden" }}>
+        {children}
+      </body>
+    </html>
   );
 }
