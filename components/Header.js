@@ -11,12 +11,12 @@ export default function Header() {
     }, []);
 
     return (
-        <div className="flex justify-between items-center w-full mt-4 md:mt-8 z-10">
-            <div className="w-24 md:w-28">
+        <div className="flex justify-between items-center w-full mt-4 md:mt-8 z-10 gap-2 md:gap-4">
+            <div className="w-32 md:w-36">
                 {language && (
                     <select
                         aria-label="Select language"
-                        className="select select-bordered w-full max-w-xs"
+                        className="select select-bordered select-sm md:select-md w-full text-xs md:text-sm"
                         defaultValue={language}
                         onChange={(e) => localStorage.setItem("selectedLanguage", e.target.value)}
                     >

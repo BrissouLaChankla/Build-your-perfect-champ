@@ -4,7 +4,7 @@ import "./globals.css";
 const inter = Inter({ subsets: ["latin"] });
 
 const SITE_URL = "https://lol-tracker.com";
-const PAGE_PATH = "/games/legends-fusion";
+const PAGE_PATH = "/tools/legends-fusion";
 const PAGE_URL = `${SITE_URL}${PAGE_PATH}`;
 
 export const metadata = {

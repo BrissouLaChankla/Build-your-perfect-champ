@@ -1,12 +1,12 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-    basePath: "/games/legends-fusion",
-    assetPrefix: "/games/legends-fusion-static",
+    basePath: "/tools/legends-fusion",
+    assetPrefix: "/tools/legends-fusion-static",
     async rewrites() {
         return {
             beforeFiles: [
                 {
-                    source: "/games/legends-fusion-static/_next/:path+",
+                    source: "/tools/legends-fusion-static/_next/:path+",
                     destination: "/_next/:path+",
                 },
             ],

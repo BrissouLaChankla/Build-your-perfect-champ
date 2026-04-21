@@ -10,11 +10,13 @@ export default function Champion({ name, id, shuffling }) {
                 animate={{ opacity: 1, y: 0 }}
             >
                 <img
-                    src={shuffling ? `/loading/${Math.floor(Math.random() * 2)}.gif` : `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
+                    src={shuffling ? `loading/${Math.floor(Math.random() * 2)}.gif` : `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
                     className="object-cover rounded-lg skeleton h-60"
                     width={400}
                     height={400}
                     alt={`Splash art of ${name}`}
+                    loading="eager"
+                    fetchPriority="high"
                 />
             </motion.div>
 
