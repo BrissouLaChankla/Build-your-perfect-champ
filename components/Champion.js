@@ -11,10 +11,11 @@ export default function Champion({ name, id, shuffling }) {
             >
                 <img
                     src={shuffling ? `loading/${Math.floor(Math.random() * 2)}.gif` : `https://ddragon.leagueoflegends.com/cdn/img/champion/splash/${id}_0.jpg`}
-                    className="object-cover rounded-lg skeleton h-60"
+                    className="object-cover rounded-lg h-60"
                     width={400}
                     height={400}
-                    alt={`Splash art of ${name}`}
+                    alt=""
+                    aria-hidden="true"
                     loading="eager"
                     fetchPriority="high"
                 />

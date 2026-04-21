@@ -36,6 +36,10 @@ export const metadata = {
 export default function RootLayout({ children }) {
   return (
     <html lang="en" data-theme="dark">
+      <head>
+        <link rel="preload" as="image" href={`${PAGE_PATH}/loading/0.gif`} />
+        <link rel="preload" as="image" href={`${PAGE_PATH}/loading/1.gif`} />
+      </head>
       <body className={inter.className} style={{ overflowX: "hidden" }}>
         {children}
       </body>
